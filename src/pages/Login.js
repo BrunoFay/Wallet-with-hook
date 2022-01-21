@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 export default function Login() {
   const context = useContext(userContext)
   const { values: { senha, email }, setValues } = useContext(userContext)
-  console.log(context);
   const [
     { buttonValidation, setButtonValidation },
     handleChange, handleSubmit

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import userContext from './user';
 
-function Provider({ children }) {
+function UserProvider({ children }) {
   const [values, setValues] = useState({email:'',senha:''});
 
   const contextValue = {
@@ -17,4 +17,4 @@ function Provider({ children }) {
   );
 }
 
-export default Provider;
+export default UserProvider;

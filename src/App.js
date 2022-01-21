@@ -1,16 +1,19 @@
 import './App.css';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
-import {Routes,Route} from "react-router-dom";
-import Provider from './context/userProvider';
+import { Routes, Route } from "react-router-dom";
+import UserProvider from './context/UserProvider';
+import WalletProvider from './context/WalletProvider';
 function App() {
   return (
-    <Provider>
-    <Routes>
-      <Route path="/" element={<Login />}/>
-      <Route path="/wallet" element={<Wallet/>}/>
-    </Routes>
-    </Provider>
+    <UserProvider>
+      <WalletProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/wallet" element={<Wallet />} />
+        </Routes>
+      </WalletProvider>
+    </UserProvider>
   );
 }
 
