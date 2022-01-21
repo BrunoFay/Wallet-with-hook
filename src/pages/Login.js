@@ -2,18 +2,22 @@ import React, { useContext } from 'react';
 import useForm from '../hooks/useForm';
 import userContext from '../context/user';
 import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
   const context = useContext(userContext)
   const { values: { senha, email }, setValues } = useContext(userContext)
-  const [
-    { buttonValidation, setButtonValidation },
-    handleChange, handleSubmit
-  ] = useForm(context)
+  const [ { buttonValidation, setButtonValidation }, handleChange] = useForm(context)
+  const navegate = useNavigate()
+
   useEffect(() => {
     setValues({ email, senha })
     senha && validation()
   }, [senha, email]);
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navegate('/wallet')
+  };
   const validation = () => {
     const REGEX_EMAIL = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     if (REGEX_EMAIL.test(email) && senha.length > 4) {
