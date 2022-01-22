@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import useForm from '../hooks/useForm';
 import userContext from '../context/user';
-import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -14,10 +13,12 @@ export default function Login() {
     setValues({ email, senha })
     senha && validation()
   }, [senha, email]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     navegate('/wallet')
   };
+
   const validation = () => {
     const REGEX_EMAIL = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     if (REGEX_EMAIL.test(email) && senha.length > 4) {
@@ -32,12 +33,10 @@ export default function Login() {
         name="email"
         placeholder="email"
         onChange={handleChange}
-        data-testid="email-input"
       />
       <input
         name="senha"
         type="password"
-        data-testid="password-input"
         onChange={handleChange}
         placeholder="senha"
       />

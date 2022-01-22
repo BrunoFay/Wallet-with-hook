@@ -10,18 +10,20 @@ const INITIAL_EXPENSE_STATE = {
   tag: 'Alimentação',
   exchangeRates: [],
 }
+/* referencia https://codigofonte.org/gerando-id-aleatorio-em-javascript/ */
+const ID_GENERATE = () => Math.floor(Date.now() * Math.random()).toString(36)
 export default function ExpenseForm() {
   const [currencie, setCurrencie] = useState({})
   const [expense, setExpense] = useState(INITIAL_EXPENSE_STATE)
-  const { setCurrencies, newExpense, expenses } = useContext(walletContext)
+  const { setCurrencies, newExpense } = useContext(walletContext)
 
   useEffect(() => {
-    /* fazer isso para utilizar requisição a api, função nao pode ser assincrona */
+    /* fazer isso para utilizar requisição a api, componente funcional nao pode ser assincrona */
     fetchData().then(data => setCurrencie(data));
   }, []);
 
   function handleChange({ target }) {
-    const expenseState = { ...expense, exchangeRates: currencie };
+    const expenseState = { ...expense, exchangeRates: currencie, id: ID_GENERATE() };
     expenseState[target.name] = target.value;
     setExpense(expenseState);
   };
@@ -29,8 +31,7 @@ export default function ExpenseForm() {
     e.preventDefault();
     setCurrencies(currencie)
     newExpense(expense)
-
-    console.log(expenses);
+    setExpense(INITIAL_EXPENSE_STATE)
   }
   const currenciesFiltred = Object.values(currencie)
     .filter((item) => item.codein !== 'BRLT' && item.code !== 'DOGE')
@@ -45,14 +46,12 @@ export default function ExpenseForm() {
         value={value}
         placeholder="valor"
         onChange={(e) => handleChange(e)}
-        data-testid="value-input"
       />
       <input
         name="description"
         value={description}
         placeholder="descrição"
         onChange={(e) => handleChange(e)}
-        data-testid="description-input"
       />
       <label htmlFor="moeda">
         Moedas
@@ -60,12 +59,11 @@ export default function ExpenseForm() {
           name="currency"
           value={currency}
           onChange={(e) => handleChange(e)}
-          data-testid="currency-input"
           id="moeda"
         >
           {Object.keys(currenciesFiltred)
             .map((coin, index) => (
-              <option data-testid={`${coin}`} key={index}>
+              <option key={index}>
                 {' '}
                 {coin}
               </option>))}
@@ -75,7 +73,7 @@ export default function ExpenseForm() {
         name="method"
         value={method}
         onChange={(e) => handleChange(e)}
-        data-testid="method-input"
+        
       >
         <option>Dinheiro</option>
         <option>Cartão de crédito</option>
@@ -85,7 +83,7 @@ export default function ExpenseForm() {
         name="tag"
         value={tag}
         onChange={(e) => handleChange(e)}
-        data-testid="tag-input"
+  
       >
         <option>Alimentação</option>
         <option>Lazer</option>

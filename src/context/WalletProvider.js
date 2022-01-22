@@ -6,11 +6,16 @@ export default function WalletProvider({children}) {
 function newExpense(expense){
   setExpenses(expenses.concat(expense))
 }
+function removeExpense(id) {
+  const newExpenses = [...expenses].filter((exp) => exp.id !== id);
+  setExpenses(newExpenses)
+}
   const contextValue = {
     currencies,
     expenses,
     setCurrencies,
-    newExpense
+    newExpense,
+    removeExpense
   }
   return (
     <walletContext.Provider value={contextValue}>
