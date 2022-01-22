@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import userContext from '../context/user';
-
-export default function Header() {
+export default  function Header() {
   const { values: { email } } = useContext(userContext)
-  
+ 
   /* const quote = (exp) => Number(Object.values(exp.exchangeRates)
     .filter((coin) => coin.code === exp.currency)
     .map((price) => price.ask)

@@ -3,14 +3,14 @@ import walletContext from './wallet';
 export default function WalletProvider({children}) {
   const [currencies, setCurrencies] = useState({})
   const [expenses, setExpenses] = useState([])
-function nexExpense(expense){
+function newExpense(expense){
   setExpenses(expenses.concat(expense))
 }
   const contextValue = {
     currencies,
     expenses,
     setCurrencies,
-    nexExpense
+    newExpense
   }
   return (
     <walletContext.Provider value={contextValue}>
