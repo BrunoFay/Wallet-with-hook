@@ -2,12 +2,7 @@ import React,{useContext} from 'react';
 import walletContext from '../context/wallet';
 
 export default function ExpenseTable() {
-
-  function editExpense() {
-    // const { dispatch } = this.props;
-  }
-
-  const {expenses,removeExpense}=useContext(walletContext)
+  const {expenses,removeExpense,editExpense}=useContext(walletContext)
   
   const quote = (exp) => Number(Object.values(exp.exchangeRates)
     .filter((coin) => coin.code === exp.currency)
@@ -17,7 +12,7 @@ export default function ExpenseTable() {
     .filter((coin) => coin.code === exp.currency)
     .map((price) => price.name)[0]
     .replace('/Real Brasileiro', '');
-    console.log(expenses);
+
   return <table border="1">
     <thead>
       <tr>
