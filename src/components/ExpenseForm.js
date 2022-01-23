@@ -24,10 +24,18 @@ export default function ExpenseForm() {
   const { setCurrencies, newExpense, setCurrenciesFiltred } = useContext(walletContext)
   const { value, description, currency, method, tag } = expense
   const [{ buttonValidation, setButtonValidation }] = useForm(walletContext)
-  const [navBar,setNavBar] =useState('hidden')
-  const [navBarClicked,setNavBarClicked] = useState(false)
- 
-  
+  const [navBar, setNavBar] = useState('hidden')
+  const [navBarClicked, setNavBarClicked] = useState(false)
+
+  useEffect(() => {
+    if (navBar === 'visible') {
+      document.body.classList.toggle('navbar-open')
+    }
+    else {
+      document.body.classList.remove('navbar-open')
+    }
+  }, [navBar])
+
   useEffect(() => {
     /* fazer isso para utilizar requisição a api, componente funcional nao pode ser assincrona */
     fetchData().then(data => setCurrencie(data));
@@ -38,7 +46,7 @@ export default function ExpenseForm() {
   }, [currencie]);
 
   useEffect(() => {
-     value > '0' ? setButtonValidation(false):setButtonValidation(true)
+    value > '0' ? setButtonValidation(false) : setButtonValidation(true)
   }, [value])
 
   const currenciesFiltred = Object.values(currencie)
@@ -50,10 +58,10 @@ export default function ExpenseForm() {
     expenseState[target.name] = target.value;
     setExpense(expenseState);
   };
-function handleNavBar(){
-  setNavBarClicked(!navBarClicked)
-  navBarClicked?setNavBar('visible'):setNavBar('hidden')
-}
+  function handleNavBar() {
+    setNavBarClicked(!navBarClicked)
+    navBarClicked ? setNavBar('visible') : setNavBar('hidden')
+  }
   function handleClick(e) {
     e.preventDefault();
     setCurrencies(currencie)
@@ -62,9 +70,9 @@ function handleNavBar(){
     setButtonValidation()
   };
 
-  return (<>   
-     <div className='nav-icon' onClick={()=>handleNavBar()}> <FaBars/></div>
-   <form className='form-expenses' style={{visibility:`${navBar}`}}>
+  return (<>
+    <div className='nav-icon' > <FaBars onClick={() => handleNavBar()} /></div>
+    <form className='form-expenses' style={{ visibility: `${navBar}` }}>
       <input
         type="number"
         name="value"
@@ -121,7 +129,7 @@ function handleNavBar(){
         Adicionar despesa
       </button>
     </form>
-    </>
+  </>
 
   );
 }

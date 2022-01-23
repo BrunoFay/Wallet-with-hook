@@ -48,13 +48,13 @@ export default function ExpenseTable() {
               type="button"
               onClick={() => editExpense(exp)}
             >
-              Editar despesa
+              Editar
             </button>
             <button
               onClick={() => removeExpense(exp.id)}
               type="button"
             >
-              excluir
+              Excluir
             </button>
           </td>
 

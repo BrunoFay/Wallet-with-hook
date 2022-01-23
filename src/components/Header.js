@@ -16,8 +16,8 @@ export default function Header() {
   return (
     <header>
       <span>{email}</span>
-      <span>{total.toFixed(2)}</span>
-      <span>R$</span>
+      <span>{total.toFixed(2)} <span>R$</span></span>
+     
     </header>
   )
 }

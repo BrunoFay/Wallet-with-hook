@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background-color:white ;
+}
+.navbar-open{
+  background-color: rgba(0, 0, 0, 0.548);
+}
 .form-expenses{
   position: fixed;
   background-color: rgb(19, 101, 223);
@@ -13,12 +19,12 @@
   width: 50vw;
   visibility: visible;
   border-radius: 7px;
-  transition: ease-in-out 3000ms;
+  transition: ease-in-out 100ms;
   right:2px;
   top:0;
   transform: skewX(-20px);
 }
-.form-expenses input{
+.form-expenses > input{
   margin-top: 3em;
   max-width: 40vw;
 }
@@ -30,10 +36,18 @@
 }
 table{
   font-size: clamp(1.3vw,55%,5em);
- 
+ text-align: center;
 
 }
-
+tr{
+  display: flex;
+  gap:5px;
+}
+th{
+  padding:2px;
+}
 header{
   height: 8vh;
+  display: flex;
+  flex-direction: column;
 }
