@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import walletContext from '../context/wallet';
 import useForm from '../hooks/useForm';
 import fetchData from '../service/api'
+import { FaBars } from 'react-icons/fa';
 
 const INITIAL_EXPENSE_STATE = {
   id: 0,
@@ -23,6 +24,8 @@ export default function ExpenseForm() {
   const { setCurrencies, newExpense, setCurrenciesFiltred } = useContext(walletContext)
   const { value, description, currency, method, tag } = expense
   const [{ buttonValidation, setButtonValidation }] = useForm(walletContext)
+  const [navBar,setNavBar] =useState('hidden')
+  const [navBarClicked,setNavBarClicked] = useState(false)
  
   
   useEffect(() => {
@@ -47,7 +50,10 @@ export default function ExpenseForm() {
     expenseState[target.name] = target.value;
     setExpense(expenseState);
   };
-
+function handleNavBar(){
+  setNavBarClicked(!navBarClicked)
+  navBarClicked?setNavBar('visible'):setNavBar('hidden')
+}
   function handleClick(e) {
     e.preventDefault();
     setCurrencies(currencie)
@@ -56,8 +62,9 @@ export default function ExpenseForm() {
     setButtonValidation()
   };
 
-  return (
-    <form>
+  return (<>   
+     <div className='nav-icon' onClick={()=>handleNavBar()}> <FaBars/></div>
+   <form className='form-expenses' style={{visibility:`${navBar}`}}>
       <input
         type="number"
         name="value"
@@ -114,5 +121,7 @@ export default function ExpenseForm() {
         Adicionar despesa
       </button>
     </form>
+    </>
+
   );
 }

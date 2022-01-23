@@ -11,7 +11,7 @@ export default function Wallet() {
   const{values:{email}} = useContext(userContext)
 /* const navegate = useNavigate() */
   return <>
-{/*   {!email && navegate('/')} */}
+ {/*  {!email && navegate('/')} */}
     <Header />
     {
       editForm ? <EditExpenseForm /> : <ExpenseForm />

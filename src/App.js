@@ -9,7 +9,7 @@ function App() {
     <UserProvider>
       <WalletProvider>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login />} />          
           <Route path="/wallet" element={<Wallet />} />
         </Routes>
       </WalletProvider>

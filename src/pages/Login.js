@@ -10,7 +10,7 @@ export default function Login() {
   const navegate = useNavigate()
 
   useEffect(() => {
-    setValues({ email, senha })
+    setValues({ email })
     senha && validation()
   }, [senha, email]);
 
