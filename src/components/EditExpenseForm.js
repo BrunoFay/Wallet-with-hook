@@ -34,7 +34,8 @@ export default function EditExpenseForm() {
     setEditform()
   }
   return (
-    <form>
+    <form className='form-expenses' id='form-edit'>
+       <label htmlFor='value'>Valor :</label>
       <input
         type="number"
         name="value"
@@ -42,6 +43,7 @@ export default function EditExpenseForm() {
         placeholder="valor"
         onChange={(e) => handleChange(e)}
       />
+       <label htmlFor='value'>Descrição :</label>
       <input
         name="description"
         value={description}
@@ -64,6 +66,7 @@ export default function EditExpenseForm() {
               </option>))}
         </select>
       </label>
+      <label htmlFor='value'>Forma de pagamento :</label>
       <select
         name="method"
         value={method}
@@ -74,6 +77,7 @@ export default function EditExpenseForm() {
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
       </select>
+      <label htmlFor='value'>Categoria :</label>
       <select
         name="tag"
         value={tag}
@@ -90,7 +94,7 @@ export default function EditExpenseForm() {
         type="submit"
         onClick={(e) => handleClick(e)}
       >
-        Editar despesa
+        Editar
       </button>
     </form>
   )

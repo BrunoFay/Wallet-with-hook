@@ -10,7 +10,9 @@
     display: flex !important;
     width: 100vw;
     background-color: green;
+    align-items: center;
     padding: 10px;
+    height: 10vh;
     flex-wrap:  wrap;
   }
   .form-expenses label{
@@ -21,13 +23,15 @@
     margin-left: 3vw;
   }
   .form-expenses select,.form-expenses button{
-    max-height: 4.5vh;
+    max-height: 4vh;
   }
   .form-expenses h1{
     display: none;
   }
   .form-expenses input{
     max-width: 13vw;
+   position: relative;
+   top: 10px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -48,7 +52,6 @@
     flex-direction: column;
     gap: 2.3vh;
     height: 80vh;
-    align-items: center;
     width: 50vw;
     visibility: visible;
     border-radius: 7px;
@@ -70,7 +73,7 @@
   }
 }
 body{
-  background-color:white ;
+  background-color:rgb(221, 218, 218) ;
   overflow-x: hidden;
 }
 
@@ -102,13 +105,17 @@ header > div {
   justify-content: space-around;
   align-items: center;
 }
-header section{
+span span{
+  position: relative;
+  right: 20px;
+}
+header > span{
 display: flex;
 gap: 1em;
 justify-self: center;
 max-width: 18em;
-
-margin-left: 4vw;
+position: relative;
+left:50vw;
 }
 #Dinheiro{
   color: green;
@@ -129,12 +136,13 @@ margin-left: 4vw;
 #Saúde{
   color:mediumblue ;
 }
-
 .method{
 color:red;
 }
 #total{
   font-size: 23px;
+  position: relative;
+  left: 79vw;
 }
 .form-expenses input{
   margin-bottom: 3vh;
@@ -149,4 +157,8 @@ color:red;
   border-radius: 5px;
   background-color: rgb(244, 252, 244);
   
+}
+#form-edit{
+  background: none;
+  background-color: orange;
 }

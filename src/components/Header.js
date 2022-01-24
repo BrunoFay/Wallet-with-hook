@@ -20,11 +20,8 @@ export default function Header() {
         <GiWallet/>
         <span>Wallet</span>
       </div>
-      <section>
-        <span>{email}</span>
+        <span id='email-header'>{email}</span>
         <span id='total'>{total.toFixed(2)} <span>R$</span></span>
-      </section>
-     
     </header>
   )
 }
