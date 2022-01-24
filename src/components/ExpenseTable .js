@@ -13,28 +13,27 @@ export default function ExpenseTable() {
     .map((price) => price.name)[0]
     .replace('/Real Brasileiro', '');
 
-  return <table border="1">
+  return <table border='1'>
     <thead>
-      <tr>
-        <th>Descrição</th>
-        <th>Tag</th>
-        <th>Método de pagamento</th>
+      <tr >
         <th>Valor</th>
+        <th>Tag</th>
+        <th>Descrição</th>
+        <th>Método de pagamento</th>
         <th>Moeda</th>
         <th>Câmbio utilizado</th>
         <th>Valor convertido</th>
-        <th>Moeda de conversão</th>
         <th>Editar/Excluir</th>
       </tr>
     </thead>
     <tbody>
       {expenses.map((exp) => (
 
-        <tr key={exp.id}>
-          <td>{exp.description}</td>
-          <td>{exp.tag}</td>
-          <td>{exp.method}</td>
+        <tr key={exp.id} >
           <td>{exp.value}</td>
+          <td id={exp.tag}>{exp.tag}</td>
+          <td>{exp.description}</td>
+          <td id={`${exp.method}`} className='method'>{exp.method}</td>
           <td>
             {coinName(exp) === 'Dólar Americano'
               ? 'Dólar Comercial' : coinName(exp)}
@@ -42,7 +41,6 @@ export default function ExpenseTable() {
           <td>{quote(exp).toFixed(2)}</td>
 
           <td>{(quote(exp) * exp.value).toFixed(2)}</td>
-          <td>Real</td>
           <td>
             <button  
               type="button"

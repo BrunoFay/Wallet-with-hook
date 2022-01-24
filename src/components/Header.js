@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import userContext from '../context/user';
 import walletContext from '../context/wallet';
+import { GiWallet } from 'react-icons/gi';
 export default function Header() {
   const { values: { email } } = useContext(userContext)
   const { expenses } = useContext(walletContext)
@@ -15,8 +16,14 @@ export default function Header() {
 
   return (
     <header>
-      <span>{email}</span>
-      <span>{total.toFixed(2)} <span>R$</span></span>
+      <div>
+        <GiWallet/>
+        <span>Wallet</span>
+      </div>
+      <section>
+        <span>{email}</span>
+        <span id='total'>{total.toFixed(2)} <span>R$</span></span>
+      </section>
      
     </header>
   )

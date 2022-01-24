@@ -17,16 +17,15 @@ const INITIAL_EXPENSE_STATE = {
 /* referencia https://codigofonte.org/gerando-id-aleatorio-em-javascript/ */
 const ID_GENERATE = () => Math.floor(Date.now() * Math.random()).toString(36)
 
-
 export default function ExpenseForm() {
+ 
   const [currencie, setCurrencie] = useState({})
   const [expense, setExpense] = useState(INITIAL_EXPENSE_STATE)
   const { setCurrencies, newExpense, setCurrenciesFiltred } = useContext(walletContext)
   const { value, description, currency, method, tag } = expense
   const [{ buttonValidation, setButtonValidation }] = useForm(walletContext)
-  const [navBar, setNavBar] = useState('hidden')
+  const [navBar, setNavBar] = useState('')
   const [navBarClicked, setNavBarClicked] = useState(false)
-
   useEffect(() => {
     if (navBar === 'visible') {
       document.body.classList.toggle('navbar-open')
@@ -60,7 +59,7 @@ export default function ExpenseForm() {
   };
   function handleNavBar() {
     setNavBarClicked(!navBarClicked)
-    navBarClicked ? setNavBar('visible') : setNavBar('hidden')
+    navBarClicked ? setNavBar('flex') : setNavBar('none')
   }
   function handleClick(e) {
     e.preventDefault();
@@ -72,36 +71,31 @@ export default function ExpenseForm() {
 
   return (<>
     <div className='nav-icon' > <FaBars onClick={() => handleNavBar()} /></div>
-    <form className='form-expenses' style={{ visibility: `${navBar}` }}>
+    <form 
+    className='form-expenses'
+    style={{ display: `${navBar}`}}>
+      <h1>Despesa</h1>
+      <label htmlFor='value'>Valor :</label>
       <input
+        id='value'
         type="number"
         name="value"
         value={value}
         placeholder="valor"
         onChange={(e) => handleChange(e)}
       />
+      <label htmlFor='description'>Descrição :</label>
       <input
+        id='description'
         name="description"
         value={description}
         placeholder="descrição"
         onChange={(e) => handleChange(e)}
       />
-      <label htmlFor="moeda">
-        Moedas
-        <select
-          name="currency"
-          value={currency}
-          onChange={(e) => handleChange(e)}
-          id="moeda"
-        >
-          {Object.keys(currenciesFiltred)
-            .map((coin, index) => (
-              <option key={index}>
-                {coin}
-              </option>))}
-        </select>
-      </label>
+
+      <label htmlFor='method'>Forma de pagamento :</label>
       <select
+        id='method'
         name="method"
         value={method}
         onChange={(e) => handleChange(e)}
@@ -110,7 +104,10 @@ export default function ExpenseForm() {
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
       </select>
+      <label htmlFor='tag'>Categoria :</label>
+
       <select
+        id='tag'
         name="tag"
         value={tag}
         onChange={(e) => handleChange(e)}
@@ -121,12 +118,27 @@ export default function ExpenseForm() {
         <option>Transporte</option>
         <option>Saúde</option>
       </select>
+      <label htmlFor="moeda">
+        Moedas :
+      </label>
+      <select
+        name="currency"
+        value={currency}
+        onChange={(e) => handleChange(e)}
+        id="moeda"
+      >
+        {Object.keys(currenciesFiltred)
+          .map((coin, index) => (
+            <option key={index}>
+              {coin}
+            </option>))}
+      </select>
       <button
         type="submit"
         onClick={(e) => handleClick(e)}
         disabled={buttonValidation}
       >
-        Adicionar despesa
+        Adicionar
       </button>
     </form>
   </>
