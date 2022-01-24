@@ -35,37 +35,22 @@ export default function EditExpenseForm() {
   }
   return (
     <form className='form-expenses' id='form-edit'>
+      <span className='despesa-span'>Editar Despesa</span>
        <label htmlFor='value'>Valor :</label>
       <input
         type="number"
         name="value"
         value={Number(value)}
-        placeholder="valor"
+        placeholder="Ex: 100"
         onChange={(e) => handleChange(e)}
       />
        <label htmlFor='value'>Descrição :</label>
       <input
         name="description"
         value={description}
-        placeholder="descrição"
+        placeholder="Ex: pizza"
         onChange={handleChange}
       />
-      <label htmlFor="moeda">
-        Moedas
-        <select
-          name="currency"
-          value={currency}
-          onChange={(e) => handleChange(e)}
-          id="moeda"
-        >
-          {Object.keys(currenciesFiltred)
-            .map((coin, index) => (
-              <option key={index}>
-                {' '}
-                {coin}
-              </option>))}
-        </select>
-      </label>
       <label htmlFor='value'>Forma de pagamento :</label>
       <select
         name="method"
@@ -90,9 +75,27 @@ export default function EditExpenseForm() {
         <option>Transporte</option>
         <option>Saúde</option>
       </select>
+      <label htmlFor="moeda">
+        Moedas :
+        </label>
+        <select
+          name="currency"
+          value={currency}
+          onChange={(e) => handleChange(e)}
+          id="moeda"
+        >
+          {Object.keys(currenciesFiltred)
+            .map((coin, index) => (
+              <option key={index}>
+                {' '}
+                {coin}
+              </option>))}
+        </select>
+      
       <button
         type="submit"
         onClick={(e) => handleClick(e)}
+        className='button-form'
       >
         Editar
       </button>

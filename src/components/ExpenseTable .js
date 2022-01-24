@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import walletContext from '../context/wallet';
 
 export default function ExpenseTable() {
-  const {expenses,removeExpense,editExpense}=useContext(walletContext)
+  const {expenses,removeExpense,editExpense,editForm}=useContext(walletContext)
   
   const quote = (exp) => Number(Object.values(exp.exchangeRates)
     .filter((coin) => coin.code === exp.currency)
@@ -14,7 +14,7 @@ export default function ExpenseTable() {
     .replace('/Real Brasileiro', '');
 
   return <table border='1'>
-    <thead>
+    <thead   >
       <tr >
         <th>Valor</th>
         <th>Tag</th>
@@ -45,12 +45,15 @@ export default function ExpenseTable() {
             <button  
               type="button"
               onClick={() => editExpense(exp)}
+              disabled={editForm}
+              id='button-edit'
             >
               Editar
             </button>
             <button
               onClick={() => removeExpense(exp.id)}
               type="button"
+              id='button-rmv'
             >
               Excluir
             </button>

@@ -29,12 +29,22 @@ export default function ExpenseForm() {
   useEffect(() => {
     if (navBar === 'visible') {
       document.body.classList.toggle('navbar-open')
+      document.body.style.backgroundColor = "red";
     }
     else {
       document.body.classList.remove('navbar-open')
     }
   }, [navBar])
 
+  useEffect(() => {
+    if (navBarClicked) {
+      document.body.style.backgroundColor = "initial";
+    }
+    else {
+      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.548)";
+
+    }
+  }, [navBarClicked])
   useEffect(() => {
     /* fazer isso para utilizar requisição a api, componente funcional nao pode ser assincrona */
     fetchData().then(data => setCurrencie(data));
@@ -74,14 +84,14 @@ export default function ExpenseForm() {
     <form 
     className='form-expenses'
     style={{ display: `${navBar}`}}>
-      <h1>Despesa</h1>
+      <span className='despesa-span'>Despesa</span>
       <label htmlFor='value'>Valor :</label>
       <input
         id='value'
         type="number"
         name="value"
         value={value}
-        placeholder="valor"
+        placeholder="Ex: 100"
         onChange={(e) => handleChange(e)}
       />
       <label htmlFor='description'>Descrição :</label>
@@ -89,7 +99,7 @@ export default function ExpenseForm() {
         id='description'
         name="description"
         value={description}
-        placeholder="descrição"
+        placeholder="Ex: pizza"
         onChange={(e) => handleChange(e)}
       />
 
@@ -137,6 +147,7 @@ export default function ExpenseForm() {
         type="submit"
         onClick={(e) => handleClick(e)}
         disabled={buttonValidation}
+        className='button-form'
       >
         Adicionar
       </button>

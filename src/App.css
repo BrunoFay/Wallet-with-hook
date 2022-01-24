@@ -1,18 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Dongle:wght@300&family=Raleway:wght@700&display=swap');
 * {
   margin: 0;
   padding: 0;
 }
-@media only screen and (min-width: 601px) {
+:root {
+  --bgcolorHead: #0e0c11;
+  --colorHead:cornsilk;
+  --ButtonEditBg:orange;
+  --ButtonFormBg:blue;
+  --bgcolorFormExpenses:rgb(92 89 89)
+}
+@media only screen and (min-width: 741px) {
+  body{
+    background: linear-gradient(to right, #42275a, #734b6d) !important;
+  }
   .nav-icon{
     display: none;
   }
   .form-expenses{
     display: flex !important;
     width: 100vw;
-    background-color: green;
+    background-color:var(--bgcolorHead);
+    color: var(--colorHead);
     align-items: center;
     padding: 10px;
-    height: 10vh;
+    height: max-content;
     flex-wrap:  wrap;
   }
   .form-expenses label{
@@ -23,9 +35,9 @@
     margin-left: 3vw;
   }
   .form-expenses select,.form-expenses button{
-    max-height: 4vh;
+    max-height: 5vh;
   }
-  .form-expenses h1{
+  .despesa-span{
     display: none;
   }
   .form-expenses input{
@@ -33,34 +45,49 @@
    position: relative;
    top: 10px;
   }
+  #total{
+    left: 33vw;
+  }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 740px) {
   .form-expenses input{
     max-width: 39vw;
   }
-  
-  .navbar-open{
-    background-color: rgba(0, 0, 0, 0.548);
+  tbody td:hover {
+    font-size: 20px;
+    transition: ease-in 300ms;
   }
-  .form-expenses h1{
-    margin: 1vh ;
+  #total{
+    left: 13vw;
   }
-  .form-expenses{
+  #email-header{
+  display: none;
+  }
+  .despesa-span{
+    font-size: x-large;
+    position: relative;
+    font-family: monospace;
+    top:6px;
+    right: 10px ;
+  }
+  .form-expenses {
     position: fixed;
-    background-color: rgb(100, 187, 92);
+    background-color: var(--bgcolorFormExpenses);
     display: flex;
     flex-direction: column;
-    gap: 2.3vh;
+    gap: 2vh;
     height: 80vh;
     width: 50vw;
-    visibility: visible;
     border-radius: 7px;
     transition: ease-in-out 100ms;
     right:2px;
     top:0;
+    align-items: center;
+    color: var(--colorHead);
   }
   .form-expenses > input{
     max-width: 40vw;
+    
   }
   .nav-icon{
     position: absolute;
@@ -70,10 +97,28 @@
     z-index:1;
     visibility: visible;
     display: initial;
+    color: var(--colorHead);
+  }
+  button{
+    padding: 3px;
+  }
+  body{
+    background-color: var();
   }
 }
+
+
+#button-edit{
+  background-color: var(--ButtonEditBg);
+}
+#button-rmv{
+  background-color: red;
+}
+.button-form{
+  background-color: var(--ButtonFormBg);
+}
 body{
-  background-color:rgb(221, 218, 218) ;
+  background: linear-gradient(to right, #42275a, #734b6d);
   overflow-x: hidden;
 }
 
@@ -81,26 +126,41 @@ table{
   font-size: clamp(1.3vw,57%,5em);
  text-align: center;
  width: 100vw;
- border:  1px  solid;
+
+}
+tbody tr:hover {
+  background-color: #f5f5f5
 }
 th,td{
   padding:3.5px;
 }
-thead {
-  color: rgb(23, 61, 49);
+tr td{
+  background-color: rgba(230, 222, 222, 0.897);
 }
+thead th {
+  color: #f5f5f5;
+}
+tbody tr{
+  transition: ease-in 100ms;
+  font-family: 'Balsamiq Sans', cursive;
+font-family: 'Dongle', sans-serif;
+font-family: 'Raleway', sans-serif;
+color: rgb(54, 52, 52);
+}
+
 header{
 height: 8vh;
 display: flex;
 gap: 2vw;
 align-items: center;
-background-color: brown;
-color: cornsilk;
+background-color: var(--bgcolorHead);
+color: var(--colorHead);
 
 }
+
 header > div {
   display: flex;
-  font-size: xx-large;
+  font-size:40px;
   width: 4.5em;
   justify-content: space-around;
   align-items: center;
@@ -115,26 +175,27 @@ gap: 1em;
 justify-self: center;
 max-width: 18em;
 position: relative;
-left:50vw;
 }
 #Dinheiro{
   color: green;
 }
-
+#Alimentação,#Lazer,#Trabalho,#Transporte,#Saúde,.method{
+  text-shadow: 1px 1px 3px #716666;
+}
 #Alimentação{
-  color: goldenrod ;
+  color: rgb(251, 255, 0) ;
 }
 #Lazer{
-  color: rgb(13, 95, 172);
+  color: rgb(125, 4, 196);
 }
 #Trabalho{
-  color: gray;
+  color: rgba(87, 84, 84, 0.76);
 }
 #Transporte{
   color:rgb(216, 39, 223) ;
 }
 #Saúde{
-  color:mediumblue ;
+  color:rgb(39, 96, 202) ;
 }
 .method{
 color:red;
@@ -142,7 +203,10 @@ color:red;
 #total{
   font-size: 23px;
   position: relative;
-  left: 79vw;
+}
+#email-header{
+  position: absolute;
+  right: 3vw;
 }
 .form-expenses input{
   margin-bottom: 3vh;
@@ -156,9 +220,25 @@ color:red;
   outline: none;
   border-radius: 5px;
   background-color: rgb(244, 252, 244);
-  
+  max-width: fit-content;
 }
 #form-edit{
   background: none;
-  background-color: orange;
+  background-color: var(--ButtonEditBg);
+  color: #2f056e;
+}
+button{ 
+   margin:  0.5vw;
+  border-radius: 3px;
+  max-height: 2em;
+  padding: 1vh;
+  font-weight: bold;
+  color: #ffffff;
+  border: unset;
+}
+button:active {
+  transform: scale(0.9)
+}
+button:disabled{
+  opacity: 0.4;
 }

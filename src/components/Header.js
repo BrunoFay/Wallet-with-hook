@@ -21,7 +21,7 @@ export default function Header() {
         <span>Wallet</span>
       </div>
         <span id='email-header'>{email}</span>
-        <span id='total'>{total.toFixed(2)} <span>R$</span></span>
+        <span id='total'>Total: {total.toFixed(2)} <span>R$</span></span>
     </header>
   )
 }
