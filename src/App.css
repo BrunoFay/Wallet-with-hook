@@ -1,75 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Dongle:wght@300&family=Raleway:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
+
 :root {
   --bgcolorHead: #0e0c11;
-  --colorHead:cornsilk;
-  --ButtonEditBg:orange;
-  --ButtonFormBg:blue;
-  --bgcolorFormExpenses:rgb(92 89 89)
+  --colorHead: cornsilk;
+  --ButtonEditBg: orange;
+  --ButtonFormBg: blue;
+  --bgcolorFormExpenses: rgb(92 89 89)
 }
+
+/* 
+1 - telas 1/2
+2 - telas 2/2
+3 - tabela 
+4 - header 
+5 - expenseTable 
+6 - expenseForm
+7 - 
+*/
+
+
+/* telas 1/2 */
 @media only screen and (min-width: 741px) {
-  body{
+  body {
     background: linear-gradient(to right, #42275a, #734b6d) !important;
   }
-  .nav-icon{
+
+  /* header */
+  .nav-icon {
     display: none;
   }
-  .form-expenses{
+
+  #total {
+    left: 33vw;
+  }
+
+  /* expenseForm */
+  .form-expenses {
     display: flex !important;
     width: 100vw;
-    background-color:var(--bgcolorHead);
+    background-color: var(--bgcolorHead);
     color: var(--colorHead);
     align-items: center;
     padding: 10px;
     height: max-content;
-    flex-wrap:  wrap;
+    flex-wrap: wrap;
   }
-  .form-expenses label{
-  margin: 0 0.7rem;
-  font-size: large;
+
+  .form-expenses label {
+    margin: 0 0.7rem;
+    font-size: large;
   }
-  .form-expenses button{
+
+  .form-expenses button {
     margin-left: 3vw;
   }
-  .form-expenses select,.form-expenses button{
+
+  .form-expenses select, .form-expenses button {
     max-height: 5vh;
   }
-  .despesa-span{
+
+  .despesa-span {
     display: none;
   }
-  .form-expenses input{
+
+  .form-expenses input {
     max-width: 13vw;
-   position: relative;
-   top: 10px;
+    position: relative;
+    top: 10px;
   }
-  #total{
-    left: 33vw;
-  }
+
 }
+
+/* telas 2/2 */
 @media only screen and (max-width: 740px) {
-  .form-expenses input{
+
+  /* expenseForm */
+  .form-expenses input {
     max-width: 39vw;
   }
-  tbody td:hover {
-    font-size: 20px;
-    transition: ease-in 300ms;
-  }
-  #total{
-    left: 13vw;
-  }
-  #email-header{
-  display: none;
-  }
-  .despesa-span{
+
+  .despesa-span {
     font-size: x-large;
     position: relative;
     font-family: monospace;
-    top:6px;
-    right: 10px ;
+    top: 6px;
+    right: 10px;
   }
+
   .form-expenses {
     position: fixed;
     background-color: var(--bgcolorFormExpenses);
@@ -80,135 +102,168 @@
     width: 50vw;
     border-radius: 7px;
     transition: ease-in-out 100ms;
-    right:2px;
-    top:0;
+    right: 2px;
+    top: 0;
     align-items: center;
     color: var(--colorHead);
   }
-  .form-expenses > input{
+
+  .form-expenses>input {
     max-width: 40vw;
-    
   }
-  .nav-icon{
+
+  /* header */
+  #total {
+    left: 13vw;
+  }
+
+  #email-header {
+    display: none;
+  }
+
+  .nav-icon {
     position: absolute;
-    right:10px;
-    top:10px;
+    right: 10px;
+    top: 10px;
     font-size: x-large;
-    z-index:1;
+    z-index: 1;
     visibility: visible;
     display: initial;
     color: var(--colorHead);
   }
-  button{
+
+  /* buttons */
+  button {
     padding: 3px;
   }
-  body{
+
+  /* tabela */
+  tbody td:hover {
+    font-size: 20px;
+    transition: ease-in 300ms;
+  }
+
+  body {
     background-color: var();
   }
 }
 
 
-#button-edit{
-  background-color: var(--ButtonEditBg);
-}
-#button-rmv{
-  background-color: red;
-}
-.button-form{
-  background-color: var(--ButtonFormBg);
-}
-body{
+body {
   background: linear-gradient(to right, #42275a, #734b6d);
   overflow-x: hidden;
 }
 
-table{
-  font-size: clamp(1.3vw,57%,5em);
- text-align: center;
- width: 100vw;
+/* tabela */
+table {
+  font-size: clamp(1.3vw, 57%, 5em);
+  text-align: center;
+  width: 100vw;
 
 }
+
 tbody tr:hover {
   background-color: #f5f5f5
 }
-th,td{
-  padding:3.5px;
+
+th, td {
+  padding: 3.5px;
 }
-tr td{
+
+tr td {
   background-color: rgba(230, 222, 222, 0.897);
 }
+
 thead th {
   color: #f5f5f5;
 }
-tbody tr{
+
+tbody tr {
   transition: ease-in 100ms;
   font-family: 'Balsamiq Sans', cursive;
-font-family: 'Dongle', sans-serif;
-font-family: 'Raleway', sans-serif;
-color: rgb(54, 52, 52);
+  font-family: 'Dongle', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  color: rgb(54, 52, 52);
 }
 
-header{
-height: 8vh;
-display: flex;
-gap: 2vw;
-align-items: center;
-background-color: var(--bgcolorHead);
-color: var(--colorHead);
+/* header */
 
-}
-
-header > div {
+header {
+  height: 8vh;
   display: flex;
-  font-size:40px;
+  gap: 2vw;
+  align-items: center;
+  background-color: var(--bgcolorHead);
+  color: var(--colorHead);
+
+}
+
+#header-icon {
+  display: flex;
+  font-size: 40px;
   width: 4.5em;
   justify-content: space-around;
   align-items: center;
 }
-span span{
+
+#total span {
   position: relative;
   right: 20px;
 }
-header > span{
-display: flex;
-gap: 1em;
-justify-self: center;
-max-width: 18em;
-position: relative;
-}
-#Dinheiro{
-  color: green;
-}
-#Alimentação,#Lazer,#Trabalho,#Transporte,#Saúde,.method{
-  text-shadow: 1px 1px 3px #716666;
-}
-#Alimentação{
-  color: rgb(251, 255, 0) ;
-}
-#Lazer{
-  color: rgb(125, 4, 196);
-}
-#Trabalho{
-  color: rgba(87, 84, 84, 0.76);
-}
-#Transporte{
-  color:rgb(216, 39, 223) ;
-}
-#Saúde{
-  color:rgb(39, 96, 202) ;
-}
-.method{
-color:red;
-}
-#total{
-  font-size: 23px;
+
+header>span {
+  display: flex;
+  gap: 1em;
+  justify-self: center;
+  max-width: 18em;
   position: relative;
 }
-#email-header{
+
+#email-header {
   position: absolute;
   right: 3vw;
 }
-.form-expenses input{
+
+#total {
+  font-size: 1.5em;
+  position: relative;
+}
+
+/* expenseTable */
+
+#Dinheiro {
+  color: green;
+}
+
+#Alimentação, #Lazer, #Trabalho, #Transporte, #Saúde, .method {
+  text-shadow: 1px 1px 3px #716666;
+}
+
+#Alimentação {
+  color: rgb(251, 255, 0);
+}
+
+#Lazer {
+  color: rgb(125, 4, 196);
+}
+
+#Trabalho {
+  color: rgba(87, 84, 84, 0.76);
+}
+
+#Transporte {
+  color: rgb(216, 39, 223);
+}
+
+#Saúde {
+  color: rgb(39, 96, 202);
+}
+
+.method {
+  color: red;
+}
+
+.form-expenses input {
   margin-bottom: 3vh;
   font-size: 16px;
   line-height: 24px;
@@ -216,19 +271,24 @@ color:red;
   border: solid thin rgb(167, 161, 161);
   border-radius: 5px;
 }
-.form-expenses select{
+
+.form-expenses select {
   outline: none;
   border-radius: 5px;
   background-color: rgb(244, 252, 244);
   max-width: fit-content;
 }
-#form-edit{
+
+#form-edit {
   background: none;
   background-color: var(--ButtonEditBg);
   color: #2f056e;
 }
-button{ 
-   margin:  0.5vw;
+
+/* buttons */
+
+button {
+  margin: 0.5vw;
   border-radius: 3px;
   max-height: 2em;
   padding: 1vh;
@@ -236,9 +296,23 @@ button{
   color: #ffffff;
   border: unset;
 }
+
 button:active {
   transform: scale(0.9)
 }
-button:disabled{
+
+button:disabled {
   opacity: 0.4;
+}
+
+#button-edit {
+  background-color: var(--ButtonEditBg);
+}
+
+#button-rmv {
+  background-color: red;
+}
+
+.button-form {
+  background-color: var(--ButtonFormBg);
 }

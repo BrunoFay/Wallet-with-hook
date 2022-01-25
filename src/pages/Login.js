@@ -26,7 +26,7 @@ export default function Login() {
     }
     return setButtonValidation(true);
   }
-  return <>
+  return <main className='login-pag'>
     <div>testando</div>
     <form>
       <input
@@ -48,5 +48,5 @@ export default function Login() {
         Entrar
       </button>
     </form>
-  </>;
+  </main>;
 }

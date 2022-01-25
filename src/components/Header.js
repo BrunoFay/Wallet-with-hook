@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header>
-      <div>
+      <div id='header-icon'>
         <GiWallet/>
         <span>Wallet</span>
       </div>

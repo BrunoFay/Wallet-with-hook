@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 export default function Wallet() {
   const { editForm } = useContext(walletContext)
   const{values:{email}} = useContext(userContext)
-/* const navegate = useNavigate() */
+
+  /* const navegate = useNavigate() */
   return <>
  {/*  {!email && navegate('/')} */}
+ 
     <Header />
     {
       editForm ? <EditExpenseForm /> : <ExpenseForm />

@@ -9,19 +9,28 @@ export default function WalletProvider({ children }) {
   
   function newExpense(expense) {
     setExpenses(expenses.concat(expense))
+    addLocalStorage('expenses',expenses.concat(expense))
   }
   function removeExpense(id) {
     const newExpenses = [...expenses].filter((exp) => exp.id !== id);
     setExpenses(newExpenses)
+    addLocalStorage('expenses',newExpenses)
+  
   }
 
   function editExpense(test) {
     const editedExpenses = [...expenses].filter((exp) => exp.id === test.id);
+    addLocalStorage('expenses',editedExpenses) 
     removeExpense(test.id)
     setEditExpenses(editedExpenses)
     setEditform(!editForm)
-
   }
+  function addLocalStorage(key, value)  {
+ localStorage.setItem(key, JSON.stringify(value));
+  };
+
+  
+  
   const contextValue = {
     currencies,
     expenses,
@@ -34,6 +43,8 @@ export default function WalletProvider({ children }) {
     setEditform,
     currenciesFiltred,
     setCurrenciesFiltred,
+    addLocalStorage,
+    setExpenses
   }
   return (
     <walletContext.Provider value={contextValue}>

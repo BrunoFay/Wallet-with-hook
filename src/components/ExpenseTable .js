@@ -1,9 +1,22 @@
-import React,{useContext} from 'react';
+import React, { useContext, useEffect } from 'react';
 import walletContext from '../context/wallet';
 
 export default function ExpenseTable() {
-  const {expenses,removeExpense,editExpense,editForm}=useContext(walletContext)
+  const {
+    expenses,
+    removeExpense,
+    editExpense,
+    editForm,
+    setExpenses } = useContext(walletContext)
   
+    useEffect(() => {
+    const localStorageValidation = localStorage.getItem('expenses') === null
+    if (expenses.length === 0 && !localStorageValidation){
+      const expensesLocalStorage =  JSON.parse(localStorage.getItem('expenses'))
+      setExpenses(expensesLocalStorage)
+    }
+  },[expenses.length,setExpenses]);
+
   const quote = (exp) => Number(Object.values(exp.exchangeRates)
     .filter((coin) => coin.code === exp.currency)
     .map((price) => price.ask)
@@ -42,7 +55,7 @@ export default function ExpenseTable() {
 
           <td>{(quote(exp) * exp.value).toFixed(2)}</td>
           <td>
-            <button  
+            <button
               type="button"
               onClick={() => editExpense(exp)}
               disabled={editForm}
