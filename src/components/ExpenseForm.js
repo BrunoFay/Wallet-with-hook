@@ -34,7 +34,7 @@ export default function ExpenseForm() {
 
   useEffect(() => {
     setCurrenciesFiltred(currenciesFiltred)
-  }, [setCurrencie]);
+  }, [currencie,setCurrencie]);
 
   useEffect(() => {
     value > '0' ? setButtonValidation(false) : setButtonValidation(true)
@@ -42,10 +42,7 @@ export default function ExpenseForm() {
 
   const currenciesFiltred = Object.values(currencie)
     .filter((item) => item.codein !== 'BRLT' && item.code !== 'DOGE')
-    .reduce((item, acc) => ({ ...item, [acc.code]: acc }), {});
-  function currenciesOptions() {
-
-  }
+    .reduce((item, acc) => ({ ...item, [acc.code]: acc }), {})
   function handleChange({ target }) {
     const expenseState = { ...expense, exchangeRates: currencie, id: ID_GENERATE() };
     expenseState[target.name] = target.value;
