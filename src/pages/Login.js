@@ -1,34 +1,37 @@
-import React, { useContext,useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import useForm from '../hooks/useForm';
 import userContext from '../context/user';
 import { useNavigate } from "react-router-dom";
+import { GiWallet } from 'react-icons/gi';
+
 
 export default function Login() {
   const context = useContext(userContext)
   const { values: { senha, email }, setValues } = useContext(userContext)
-  const [ { buttonValidation, setButtonValidation }, handleChange] = useForm(context)
+  const [{ buttonValidation, setButtonValidation }, handleChange] = useForm(context)
   const navegate = useNavigate()
 
   useEffect(() => {
-    setValues({ email })
-    senha && validation()
+    senha && emailValidation()
   }, [senha, email]);
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     navegate('/wallet')
   };
 
-  const validation = () => {
+  function emailValidation() {
     const REGEX_EMAIL = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     if (REGEX_EMAIL.test(email) && senha.length > 4) {
+      setValues({ email })
       return setButtonValidation(false);
     }
     return setButtonValidation(true);
   }
+
   return <main className='login-pag'>
-    <div>testando</div>
     <form>
+      <span>Wallet<span id='login-icon'> <GiWallet /></span></span>
       <input
         name="email"
         placeholder="email"
@@ -48,5 +51,6 @@ export default function Login() {
         Entrar
       </button>
     </form>
+    <span id='login-message'>made jan 2022 by Bruno Fay</span>
   </main>;
 }

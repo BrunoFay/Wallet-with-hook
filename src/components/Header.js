@@ -17,11 +17,11 @@ export default function Header() {
   return (
     <header>
       <div id='header-icon'>
-        <GiWallet/>
+        <GiWallet />
         <span>Wallet</span>
       </div>
-        <span id='email-header'>{email}</span>
-        <span id='total'>Total: {total.toFixed(2)} <span>R$</span></span>
+      <span id='email-header'>{email}</span>
+      <span id='total'>Total: {total.toFixed(2)} <span>R$</span></span>
     </header>
   )
 }

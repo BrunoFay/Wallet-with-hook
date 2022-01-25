@@ -22,21 +22,24 @@ export default function EditExpenseForm() {
     method,
     tag,
     id } = editedEXpense
+
   function handleChange({ target }) {
     let expenseState = { ...editedEXpense, exchangeRates: currencies, id };
     expenseState[target.name] = target.value;
     setEditedExpense(expenseState);
   };
+
   function handleClick(e) {
     e.preventDefault();
     newExpense(editedEXpense)
     setEditedExpense(INITIAL_EXPENSE_STATE)
     setEditform()
   }
+
   return (
     <form className='form-expenses' id='form-edit'>
       <span className='despesa-span'>Editar Despesa</span>
-       <label htmlFor='value'>Valor :</label>
+      <label htmlFor='value'>Valor :</label>
       <input
         type="number"
         name="value"
@@ -44,7 +47,7 @@ export default function EditExpenseForm() {
         placeholder="Ex: 100"
         onChange={(e) => handleChange(e)}
       />
-       <label htmlFor='value'>Descrição :</label>
+      <label htmlFor='value'>Descrição :</label>
       <input
         name="description"
         value={description}
@@ -77,21 +80,21 @@ export default function EditExpenseForm() {
       </select>
       <label htmlFor="moeda">
         Moedas :
-        </label>
-        <select
-          name="currency"
-          value={currency}
-          onChange={(e) => handleChange(e)}
-          id="moeda"
-        >
-          {Object.keys(currenciesFiltred)
-            .map((coin, index) => (
-              <option key={index}>
-                {' '}
-                {coin}
-              </option>))}
-        </select>
-      
+      </label>
+      <select
+        name="currency"
+        value={currency}
+        onChange={(e) => handleChange(e)}
+        id="moeda"
+      >
+        {Object.keys(currenciesFiltred)
+          .map((coin, index) => (
+            <option key={index}>
+              {' '}
+              {coin}
+            </option>))}
+      </select>
+
       <button
         type="submit"
         onClick={(e) => handleClick(e)}

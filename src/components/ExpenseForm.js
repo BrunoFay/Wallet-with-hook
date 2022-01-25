@@ -18,7 +18,7 @@ const INITIAL_EXPENSE_STATE = {
 const ID_GENERATE = () => Math.floor(Date.now() * Math.random()).toString(36)
 
 export default function ExpenseForm() {
- 
+
   const [currencie, setCurrencie] = useState({})
   const [expense, setExpense] = useState(INITIAL_EXPENSE_STATE)
   const { setCurrencies, newExpense, setCurrenciesFiltred } = useContext(walletContext)
@@ -26,25 +26,7 @@ export default function ExpenseForm() {
   const [{ buttonValidation, setButtonValidation }] = useForm(walletContext)
   const [navBar, setNavBar] = useState('')
   const [navBarClicked, setNavBarClicked] = useState(false)
-  useEffect(() => {
-    if (navBar === 'visible') {
-      document.body.classList.toggle('navbar-open')
-      document.body.style.backgroundColor = "red";
-    }
-    else {
-      document.body.classList.remove('navbar-open')
-    }
-  }, [navBar])
 
-  useEffect(() => {
-    if (navBarClicked) {
-      document.body.style.backgroundColor = "initial";
-    }
-    else {
-      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.548)";
-
-    }
-  }, [navBarClicked])
   useEffect(() => {
     /* fazer isso para utilizar requisição a api, componente funcional nao pode ser assincrona */
     fetchData().then(data => setCurrencie(data));
@@ -52,7 +34,7 @@ export default function ExpenseForm() {
 
   useEffect(() => {
     setCurrenciesFiltred(currenciesFiltred)
-  }, [currencie]);
+  }, [setCurrencie]);
 
   useEffect(() => {
     value > '0' ? setButtonValidation(false) : setButtonValidation(true)
@@ -61,7 +43,9 @@ export default function ExpenseForm() {
   const currenciesFiltred = Object.values(currencie)
     .filter((item) => item.codein !== 'BRLT' && item.code !== 'DOGE')
     .reduce((item, acc) => ({ ...item, [acc.code]: acc }), {});
+  function currenciesOptions() {
 
+  }
   function handleChange({ target }) {
     const expenseState = { ...expense, exchangeRates: currencie, id: ID_GENERATE() };
     expenseState[target.name] = target.value;
@@ -71,6 +55,7 @@ export default function ExpenseForm() {
     setNavBarClicked(!navBarClicked)
     navBarClicked ? setNavBar('flex') : setNavBar('none')
   }
+
   function handleClick(e) {
     e.preventDefault();
     setCurrencies(currencie)
@@ -81,9 +66,9 @@ export default function ExpenseForm() {
 
   return (<>
     <div className='nav-icon' > <FaBars onClick={() => handleNavBar()} /></div>
-    <form 
-    className='form-expenses'
-    style={{ display: `${navBar}`}}>
+    <form
+      className='form-expenses'
+      style={{ display: `${navBar}` }}>
       <span className='despesa-span'>Despesa</span>
       <label htmlFor='value'>Valor :</label>
       <input

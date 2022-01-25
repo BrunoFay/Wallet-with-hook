@@ -10,7 +10,8 @@
   --colorHead: cornsilk;
   --ButtonEditBg: orange;
   --ButtonFormBg: blue;
-  --bgcolorFormExpenses: rgb(92 89 89)
+  --bgcolorFormExpenses: rgb(92 89 89);
+  --bgcolorLogin: rgba(231, 238, 238, 0.664);
 }
 
 /* 
@@ -20,7 +21,7 @@
 4 - header 
 5 - expenseTable 
 6 - expenseForm
-7 - 
+7 - login
 */
 
 
@@ -62,6 +63,8 @@
 
   .form-expenses select, .form-expenses button {
     max-height: 5vh;
+    padding: 4px;
+
   }
 
   .despesa-span {
@@ -72,8 +75,17 @@
     max-width: 13vw;
     position: relative;
     top: 10px;
+    padding: 2px;
   }
 
+  .login-pag form {
+    width: 20em;
+    top: 6em;
+  }
+
+  #login-message {
+    margin-top: 7vh;
+  }
 }
 
 /* telas 2/2 */
@@ -141,6 +153,11 @@
   tbody td:hover {
     font-size: 20px;
     transition: ease-in 300ms;
+  }
+
+  .login-pag form {
+    width: 16em;
+    top: 3em;
   }
 
   body {
@@ -263,7 +280,7 @@ header>span {
   color: red;
 }
 
-.form-expenses input {
+.form-expenses input, .login-pag input {
   margin-bottom: 3vh;
   font-size: 16px;
   line-height: 24px;
@@ -277,6 +294,7 @@ header>span {
   border-radius: 5px;
   background-color: rgb(244, 252, 244);
   max-width: fit-content;
+  padding: 2px;
 }
 
 #form-edit {
@@ -315,4 +333,65 @@ button:disabled {
 
 .button-form {
   background-color: var(--ButtonFormBg);
+}
+
+/* login */
+
+.login-pag, .login-pag form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-pag form {
+  height: 60vh;
+  max-height: 22em;
+  background-color: var(--bgcolorLogin);
+  gap: 1em;
+  align-self: center;
+  border-radius: 7px;
+  box-shadow: 0 1px 10px 5px rgba(8, 27, 68, 0.534);
+  position: relative;
+
+  transition: ease-in 200ms;
+}
+
+.login-pag form:hover {
+  box-shadow: 0 1px 10px 5px rgb(8, 27, 68);
+
+}
+
+.login-pag input {
+  max-width: 12em;
+  align-self: center;
+  justify-content: center;
+  position: relative;
+  top: 1em;
+  padding: 3px;
+}
+
+.login-pag button {
+  background-color: #2f056e;
+  position: relative;
+  top: 1rem;
+  width: 7em;
+  align-self: center;
+}
+
+.login-pag span {
+  font-size: xx-large;
+  margin-top: 1em;
+  color: rgb(8, 27, 68);
+  align-self: center;
+  font-weight: 600;
+}
+
+#login-icon {
+  position: relative;
+  top: 3px;
+}
+
+#login-message {
+  font-size: small;
+  color: rgb(231, 238, 238);
+  font-weight: 400;
 }
