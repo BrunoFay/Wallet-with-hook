@@ -31,7 +31,7 @@ export default function Login() {
 
   return <main className='login-pag'>
     <form>
-      <span>Wallet<span id='login-icon'> <GiWallet /></span></span>
+      <span><span id='login-icon'> <GiWallet /></span>Wallet</span>
       <input
         name="email"
         placeholder="email"

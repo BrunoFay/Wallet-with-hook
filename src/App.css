@@ -10,6 +10,7 @@
   --colorHead: cornsilk;
   --ButtonEditBg: orange;
   --ButtonFormBg: blue;
+  --ButtonFormSmallWBg: #07076a;
   --bgcolorFormExpenses: rgb(92 89 89);
   --bgcolorLogin: rgba(231, 238, 238, 0.664);
 }
@@ -26,11 +27,13 @@
 
 
 /* telas 1/2 */
-@media only screen and (min-width: 741px) {
+@media only screen and (min-width: 761px) {
   body {
     background: linear-gradient(to right, #42275a, #734b6d) !important;
   }
-
+  .button-form {
+    background-color: var(--ButtonFormBg);
+  }
   /* header */
   .nav-icon {
     display: none;
@@ -89,13 +92,22 @@
 }
 
 /* telas 2/2 */
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 375px) {
 
+  table {
+    display: flex;
+  flex-wrap: wrap;
+  }
+
+}
+@media only screen and (max-width: 760px)  {
   /* expenseForm */
   .form-expenses input {
     max-width: 39vw;
   }
-
+  .button-form {
+    background-color: var( --ButtonFormSmallWBg);
+  }
   .despesa-span {
     font-size: x-large;
     position: relative;
@@ -148,7 +160,7 @@
   button {
     padding: 3px;
   }
-
+  
   /* tabela */
   tbody td:hover {
     font-size: 20px;
@@ -176,7 +188,7 @@ table {
   font-size: clamp(1.3vw, 57%, 5em);
   text-align: center;
   width: 100vw;
-
+ 
 }
 
 tbody tr:hover {
@@ -238,7 +250,7 @@ header>span {
 
 #email-header {
   position: absolute;
-  right: 3vw;
+  right: 1rem;
 }
 
 #total {
@@ -331,9 +343,7 @@ button:disabled {
   background-color: red;
 }
 
-.button-form {
-  background-color: var(--ButtonFormBg);
-}
+
 
 /* login */
 
