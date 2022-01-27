@@ -63,6 +63,10 @@
   .form-expenses button {
     margin-left: 3vw;
   }
+  button:disabled {
+    opacity: 0.4;
+  }
+  
 
   .form-expenses select, .form-expenses button {
     max-height: 5vh;
@@ -331,9 +335,6 @@ button:active {
   transform: scale(0.9)
 }
 
-button:disabled {
-  opacity: 0.4;
-}
 
 #button-edit {
   background-color: var(--ButtonEditBg);
@@ -365,9 +366,8 @@ button:disabled {
   transition: ease-in 200ms;
 }
 
-.login-pag form:hover {
+.login-pag form:hover,.login-pag form:focus-within {
   box-shadow: 0 1px 10px 5px rgb(8, 27, 68);
-
 }
 
 .login-pag input {
