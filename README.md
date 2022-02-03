@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Projeto TrybeWallet refatorado com componentes funcionais.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O objetivo desse projeto feito na Trybe com componentes de classe, era desenvolvermos o conhecimento de gerenciamento de estado compartilhado com a ferramenta Redux.
 
-## Available Scripts
+A proposta era desenvolver uma aplicação JS de controle de despesas utilizando uma API que faz a conversão de moedas globais para BRL (https://docs.awesomeapi.com.br/api-de-moedas).
 
-In the project directory, you can run:
+Resolvi estilizar e refatorar ele após terminarmos o bloco de componentes funcionais, hooks customizados, Context API e aproveitei para iniciar os estudos na versão 6 do react router à qual senti uma melhora significativa em comparação a versão anterior hehehe.
 
-### `npm start`
+Conhecimentos praticados :
+- ReactJS
+- React router dom v6
+- Consumo de API
+- Componentes de função
+- Lifecicle com hooks
+- Hooks
+- CSS responsivo e com Acessibilidade
+- Validação de campos
+- Armazenamento no LocalStorage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Para visualizar um video do projeto, clique na imagem abaixo !
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![Watch the video](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvX7XjW8SbO7M8RFY41EYr8WtFq9QouZ7L5A&usqp=CAU)](https://youtu.be/g_kapBeq4rY)
 
-### `npm test`
+## Para visualizar o projeto funcionando, clique no link abaixo !
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://wallet-seven-chi.vercel.app/
